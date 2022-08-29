@@ -2,10 +2,10 @@ sources:
   - name: GeneralSettingAPI
     handler:
       jsonSchema:
-        baseUrl: http://localhost:3001/v2/qa-conditions
+        baseUrl: "{env.VPC_API_BASE_URL}"
         operationHeaders:
           # Please do not use capital letters while getting the headers
-          Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlF6STVNRVk1UlVNeU5EQkZSVVkyTWtFMU16a3dRakZGTkRBeFFqVTBSRU15TkRFd04wRkZNUSJ9.eyJodHRwczovL3d3dy52aWV3cG9pbnRjbG91ZC5jb20vY2l0aXplbiI6ImJhcnJhY3VkYXMtcWEsY29uZGl0aW9ucy1jcmFuc3RvbnJpLGNyYW5iZXJyeXRvd25zaGlwcGEtdGVzdCxkZXYtYWRkaXRpb25hbC1sb2NhdGlvbnMsZGV2LWFwaS1pbnRlZ3JhdGlvbixkZXYtbGEtdHJlYXN1cmVyLGRldi1sYS10cmVhc3VyZXIyLGRldi1tYXN0ZXIsZGV2LW1vYmlsZSxkZXYtbmFyd2hhbCxkZXYtcnlhbixkZXYtc3RldixmaXNoZXJzaW4tdGVzdCxndWVzdC1wb3J0YWwtdGVzdCxxYS1jb25kaXRpb25zLHFhLWNvbmRpdGlvbnMtcmFpbHMtcmVwb3J0aW5nLHFhLWludGVncmF0aW9uLHFhLW1hc3RlcixxYS1uYXJ3aGFscyxxYS1wZXJmLHFhLXRlc3Qsc2Vwcy1kZXYtbWFzdGVyLHVuaW9uY291bnR5b2gtdGVzdCIsImh0dHBzOi8vd3d3LnZpZXdwb2ludGNsb3VkLmNvbS9lbXBsb3llZSI6IiIsImh0dHBzOi8vd3d3LnZpZXdwb2ludGNsb3VkLmNvbS9hZG1pbiI6IiIsImh0dHBzOi8vd3d3LnZpZXdwb2ludGNsb3VkLmNvbS9zdXBlclVzZXIiOiIiLCJodHRwczovL3d3dy52aWV3cG9pbnRjbG91ZC5jb20vcGxjTWljcm9zZXJ2aWNlIjoiIiwiaHR0cHM6Ly93d3cudmlld3BvaW50Y2xvdWQuY29tL2Nvbm5lY3Rpb24iOiJVc2VybmFtZS1QYXNzd29yZC1BdXRoZW50aWNhdGlvbiIsImlzcyI6Imh0dHBzOi8vbG9naW4udnBjdGVzdC5jb20vIiwic3ViIjoiYXV0aDB8NWU1NmQwOWM2N2QxOTcwZTQ1OTYzNjU1IiwiYXVkIjoidmlld3BvaW50Y2xvdWQuY29tL2FwaS90ZXN0IiwiaWF0IjoxNjYxNjk2ODQ1LCJleHAiOjE2NjE5NTYwNDUsImF6cCI6Ikl2TWFFamZLZjNUSjZsZXdwRW5XV1F6TEpoeklQdGY1IiwiZ3R5IjoicGFzc3dvcmQifQ.fWRvO0sl2REj2L94OeF9EDHnnurctlORddAn0hhxuTUWL16bOvg-TVmePGoNVdOasBqzKFwQP26fbXiwQiyiSlUw29mXw4MBOi8c76TYGTYQnR2PmH0B2nf3MvIExYqkxMg6518GFHP-sbZxDjTyZk6Lr0VUR_NIIcND7BKrQMOf4rpz_ax8xav42sq_6_sERIKmfwg-PONmM-aeWutt8zTNtC0TymeRqJS9DjWgr0G_7_xjVn0xjslEkLeU8KASBsr2ljxyfyc6o4T8LqvhnKlpJeiuKU13RinAER9Si3l0ljA8PNr2NIvR1mFG1EYhAzbvhcd78haywoFf345YNA
+          Authorization: "{env.AUTH_TOKEN}"
         operations:
           - type: Query
             field: task_inbox_count
@@ -17,25 +17,24 @@ sources:
             path: /community_general_settings
             method: GET
             responseSchema: ./json-schemas/gs.json#/definitions/CommunityGeneralSetting
-          - type: Query
-            field: general_settings
-            path: /general_settings/{args.id}
-            method: GET
-            responseSchema: ./json-schemas/gs.json#/definitions/GeneralSetting
-            argTypeMap:
-              id:
-                type: number
-                nullable: false
-
+  - name: General Setting
+    handler:
+      openapi:
+        source: ./openapi-spec/gs.yml
+        ignoreErrorResponses: true
+        baseUrl: "{env.VPC_API_BASE_URL}"
+        operationHeaders:
+          # Please do not use capital letters while getting the headers
+          Authorization: "{env.AUTH_TOKEN}"
   - name: Records API
     handler:
       openapi:
-        source: ./openapi.yml
+        source: ./openapi-spec/records.yml
         ignoreErrorResponses: true
-        baseUrl: http://localhost:3001/v2/qa-conditions
+        baseUrl: "{env.VPC_API_BASE_URL}"
         operationHeaders:
           # Please do not use capital letters while getting the headers
-          Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlF6STVNRVk1UlVNeU5EQkZSVVkyTWtFMU16a3dRakZGTkRBeFFqVTBSRU15TkRFd04wRkZNUSJ9.eyJodHRwczovL3d3dy52aWV3cG9pbnRjbG91ZC5jb20vY2l0aXplbiI6ImJhcnJhY3VkYXMtcWEsY29uZGl0aW9ucy1jcmFuc3RvbnJpLGNyYW5iZXJyeXRvd25zaGlwcGEtdGVzdCxkZXYtYWRkaXRpb25hbC1sb2NhdGlvbnMsZGV2LWFwaS1pbnRlZ3JhdGlvbixkZXYtbGEtdHJlYXN1cmVyLGRldi1sYS10cmVhc3VyZXIyLGRldi1tYXN0ZXIsZGV2LW1vYmlsZSxkZXYtbmFyd2hhbCxkZXYtcnlhbixkZXYtc3RldixmaXNoZXJzaW4tdGVzdCxndWVzdC1wb3J0YWwtdGVzdCxxYS1jb25kaXRpb25zLHFhLWNvbmRpdGlvbnMtcmFpbHMtcmVwb3J0aW5nLHFhLWludGVncmF0aW9uLHFhLW1hc3RlcixxYS1uYXJ3aGFscyxxYS1wZXJmLHFhLXRlc3Qsc2Vwcy1kZXYtbWFzdGVyLHVuaW9uY291bnR5b2gtdGVzdCIsImh0dHBzOi8vd3d3LnZpZXdwb2ludGNsb3VkLmNvbS9lbXBsb3llZSI6IiIsImh0dHBzOi8vd3d3LnZpZXdwb2ludGNsb3VkLmNvbS9hZG1pbiI6IiIsImh0dHBzOi8vd3d3LnZpZXdwb2ludGNsb3VkLmNvbS9zdXBlclVzZXIiOiIiLCJodHRwczovL3d3dy52aWV3cG9pbnRjbG91ZC5jb20vcGxjTWljcm9zZXJ2aWNlIjoiIiwiaHR0cHM6Ly93d3cudmlld3BvaW50Y2xvdWQuY29tL2Nvbm5lY3Rpb24iOiJVc2VybmFtZS1QYXNzd29yZC1BdXRoZW50aWNhdGlvbiIsImlzcyI6Imh0dHBzOi8vbG9naW4udnBjdGVzdC5jb20vIiwic3ViIjoiYXV0aDB8NWU1NmQwOWM2N2QxOTcwZTQ1OTYzNjU1IiwiYXVkIjoidmlld3BvaW50Y2xvdWQuY29tL2FwaS90ZXN0IiwiaWF0IjoxNjYxNjk2ODQ1LCJleHAiOjE2NjE5NTYwNDUsImF6cCI6Ikl2TWFFamZLZjNUSjZsZXdwRW5XV1F6TEpoeklQdGY1IiwiZ3R5IjoicGFzc3dvcmQifQ.fWRvO0sl2REj2L94OeF9EDHnnurctlORddAn0hhxuTUWL16bOvg-TVmePGoNVdOasBqzKFwQP26fbXiwQiyiSlUw29mXw4MBOi8c76TYGTYQnR2PmH0B2nf3MvIExYqkxMg6518GFHP-sbZxDjTyZk6Lr0VUR_NIIcND7BKrQMOf4rpz_ax8xav42sq_6_sERIKmfwg-PONmM-aeWutt8zTNtC0TymeRqJS9DjWgr0G_7_xjVn0xjslEkLeU8KASBsr2ljxyfyc6o4T8LqvhnKlpJeiuKU13RinAER9Si3l0ljA8PNr2NIvR1mFG1EYhAzbvhcd78haywoFf345YNA
+          Authorization: "{env.AUTH_TOKEN}"
 
 documents:
   - ./example-queries/*.graphql

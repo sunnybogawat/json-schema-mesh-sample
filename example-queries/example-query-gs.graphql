@@ -1,12 +1,10 @@
 query ExampleMeQuery1 {
-  general_settings(id: 1) {
-    orgName,
-    timeZoneName,
-    subdomainName,
-    subdomainNameFormatted,
-    id,
-    date_format,
-    dateFormatID
+  getGeneralSettings(id: 1) {
+       data {
+        attributes {
+            orgName
+            logoURL
+        }
+    }
   }
-  
 }
