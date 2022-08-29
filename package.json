@@ -1,0 +1,21 @@
+{
+  "name": "json-schema-mesh-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "mesh dev",
+    "build": "mesh build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.76.2",
+    "@graphql-mesh/json-schema": "^0.34.1",
+    "@graphql-mesh/openapi": "^0.32.1",
+    "@graphql-mesh/transform-filter-schema": "^0.14.79",
+    "graphql": "^16.6.0",
+    "typescript": "^4.8.2"
+  }
+}

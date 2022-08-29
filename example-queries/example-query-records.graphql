@@ -1,0 +1,10 @@
+query exampleQuery4 {
+  getRecord(record_id: 562021) {
+    data {
+        attributes {
+            recordID
+            recordNumber
+        }
+    }
+  }
+}

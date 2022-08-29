@@ -1,0 +1,87 @@
+openapi: 3.0.2
+info:
+  version: 0.0.1
+  title: Citizen services Record's APIs
+paths:
+  /records/{record_id}:
+    get:
+      summary: Returns details about a particular record
+      operationId: getRecord
+      tags:
+        - Records
+      parameters:
+        - name: record_id
+          in: path
+          description: ID of the record
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Details about a record by ID
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/record'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+
+components:
+  schemas:
+    error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    record:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            attributes:
+              type: object
+              properties:
+                recordID:
+                  type: integer
+                recordTypeID:
+                  type: integer
+                dateCreated:
+                  type: string
+                recordTypeName:
+                  type: string
+                recordNumber:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                    - STOPPED
+                    - DRAFT
+                    - ACTIVE
+                    - COMPLETE
+                dateSubmitted:
+                  type: string
+                  format: date-time
+                lastUpdatedDate:
+                  type: string
+                  format: date-time
+                expirationDate:
+                  type: string
+                  format: date-time
+
+ 
+     

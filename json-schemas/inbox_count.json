@@ -1,0 +1,14 @@
+{
+    "definitions": {
+      "InboxCount": {
+        "type": "object",
+        "title": "InboxCount",
+        "description": "CIT Task Inbox Count",
+        "properties": {
+          "task_inbox_count": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,60 @@
+{
+    "definitions": {
+      "GeneralSetting": {
+        "type": "object",
+        "title": "GeneralSetting",
+        "description": "CIT general Settings",
+        "properties": {
+          "orgName": {
+            "type": "string"
+          },
+          "subdomainName": {
+            "type": "string"
+          },
+          "subdomainNameFormatted": {
+            "type": "string"
+          },
+          "timeZoneName": {
+            "type": "string"
+          },
+          "date_format": {
+            "type": "string"
+          },
+          "dateFormatID": {
+            "type": "number"
+          },
+          "id": {
+            "type": "number"
+          }
+        }
+      },
+      "CommunityGeneralSetting": {
+        "type": "object",
+        "title": "GeneralSetting",
+        "description": "CIT general Settings",
+        "properties": {
+          "orgName": {
+            "type": "string"
+          },
+          "subdomainName": {
+            "type": "string"
+          },
+          "subdomainNameFormatted": {
+            "type": "string"
+          },
+          "timeZoneName": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  
+
+  
+
+
+  
+
+
+
