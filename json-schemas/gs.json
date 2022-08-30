@@ -1,60 +1,46 @@
 {
-    "definitions": {
-      "GeneralSetting": {
-        "type": "object",
-        "title": "GeneralSetting",
-        "description": "CIT general Settings",
-        "properties": {
-          "orgName": {
-            "type": "string"
-          },
-          "subdomainName": {
-            "type": "string"
-          },
-          "subdomainNameFormatted": {
-            "type": "string"
-          },
-          "timeZoneName": {
-            "type": "string"
-          },
-          "date_format": {
-            "type": "string"
-          },
-          "dateFormatID": {
-            "type": "number"
-          },
-          "id": {
-            "type": "number"
-          }
-        }
-      },
-      "CommunityGeneralSetting": {
-        "type": "object",
-        "title": "GeneralSetting",
-        "description": "CIT general Settings",
-        "properties": {
-          "orgName": {
-            "type": "string"
-          },
-          "subdomainName": {
-            "type": "string"
-          },
-          "subdomainNameFormatted": {
-            "type": "string"
-          },
-          "timeZoneName": {
-            "type": "string"
-          }
-        }
-      }
-    }
-  }
-  
-
-  
-
-
-  
-
-
-
+	"data": {
+		"attributes": {
+			"generalSettingsID": 1,
+			"orgName": "QA-Community",
+			"logoURL": "https://viewpointcloud.blob.core.windows.net/profile-pictures/sample_Thu_Aug_25_2022_23:18:48_GMT+0000_(Greenwich_Mean_Time).png",
+			"addressIntegration": true,
+			"allowTestPayments": true,
+			"stripeConnected": true,
+			"stripeLive": false,
+			"lastUpdatedByUserID": null,
+			"lastUpdatedDate": "2022-01-05T15:30:00.000Z",
+			"mapDefaultLatitude": "33.17823",
+			"mapDefaultLongitude": "-96.890989",
+			"publicPortalPhoto": "https://viewpointcloud.blob.core.windows.net/profile-pictures/75e1d06964445f70224b456b61f8e07b_Tue_Feb_01_2022_06:02:39_GMT+0000_(Greenwich_Mean_Time).jpeg",
+			"publicPortalPhotoCredit": "testingPublicPortalPhotoCreditUpdate",
+			"publicPortalHeadline": "How may we help this time? Hi there",
+			"publicPortalSubHeader": "",
+			"live": false,
+			"achPaymentLimit": "1000.0",
+			"ccPaymentLimit": "9999.0",
+			"allowCCPayments": true,
+			"allowACHPayments": true,
+			"publicPortalEnabled": true,
+			"allowPublicRecordSearch": true,
+			"allowPublicLocationSearch": true,
+			"publicUserIndexURL": null,
+			"timeZoneID": 169,
+			"communityPaysCCFee": true,
+			"communityPaysCheckFee": true,
+			"googleSsoEnabled": false,
+			"ogSsoEnabled": true,
+			"auth0LoginEnabled": true,
+			"currencyID": 2,
+			"dateFormatID": 2,
+			"salesForceID": "",
+			"ogReportingEnabled": true,
+			"reportingEntity": "53b4bd74-5a35-4825-bcf7-52a8eb3e23c8",
+			"timeZoneName": "America/New_York",
+			"subdomainName": "qa-conditions",
+			"subdomainNameFormatted": "qa-conditions",
+			"id": 1,
+			"date_format": "au"
+		}
+	}
+}

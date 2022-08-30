@@ -1,5 +1,5 @@
 sources:
-  - name: GeneralSettingAPI
+  - name: General Setting API
     handler:
       jsonSchema:
         baseUrl: "{env.VPC_API_BASE_URL}"
@@ -8,24 +8,10 @@ sources:
           Authorization: "{env.AUTH_TOKEN}"
         operations:
           - type: Query
-            field: task_inbox_count
-            path: /task_inbox_count
+            field: general_settings
+            path: /general_settings/1
             method: GET
-            responseSchema: ./json-schemas/inbox_count.json#/definitions/InboxCount
-          - type: Query
-            field: community_general_settings
-            path: /community_general_settings
-            method: GET
-            responseSchema: ./json-schemas/gs.json#/definitions/CommunityGeneralSetting
-  - name: General Setting
-    handler:
-      openapi:
-        source: ./openapi-spec/gs.yml
-        ignoreErrorResponses: true
-        baseUrl: "{env.VPC_API_BASE_URL}"
-        operationHeaders:
-          # Please do not use capital letters while getting the headers
-          Authorization: "{env.AUTH_TOKEN}"
+            responseSample: ./json-schemas/gs.json
   - name: Records API
     handler:
       openapi:
