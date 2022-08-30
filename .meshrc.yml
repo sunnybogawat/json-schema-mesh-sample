@@ -11,7 +11,8 @@ sources:
             field: general_settings
             path: /general_settings/1
             method: GET
-            responseSample: ./json-schemas/gs.json
+            responseSample: ./sample-json/gs.json
+            responseTypeName: GeneralSetting
   - name: Records API
     handler:
       openapi:
