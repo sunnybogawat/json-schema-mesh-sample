@@ -39,4 +39,10 @@ components:
               properties:
                 firstName:
                   type: string
-                  description: user name
+                  description: user first name
+                lastName:
+                  type: string
+                  description: user last name
+                email:
+                  type: string
+                  description: user email    
