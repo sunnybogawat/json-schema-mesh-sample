@@ -1,6 +1,0 @@
-query ExampleMeQuery {
-  task_inbox_count {
-    task_inbox_count
-  }
-  
-}

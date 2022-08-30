@@ -1,9 +1,0 @@
-query ExampleMeQuery3 {
-  community_general_settings {
-    orgName,
-    timeZoneName,
-    subdomainName,
-    subdomainNameFormatted,
-  }
-  
-}
