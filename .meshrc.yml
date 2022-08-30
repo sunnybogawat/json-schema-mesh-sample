@@ -35,6 +35,13 @@ sources:
         operationHeaders:
           # Please do not use capital letters while getting the headers
           Authorization: "{env.AUTH_TOKEN}"
+  - name: User API
+    handler:
+      openapi:
+        source: ./openapi-spec/user.yml
+        ignoreErrorResponses: true
+        baseUrl: "{env.VPC_API_BASE_URL}"
+              
 
 documents:
   - ./example-queries/*.graphql

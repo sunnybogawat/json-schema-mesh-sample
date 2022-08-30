@@ -23,6 +23,33 @@ paths:
             application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/record'
+          links: 
+            getApplicantDetails:
+              description: The applicantUserID returned in the response can be used as the 'userID'
+              operationId: getUser
+              parameters:
+                userID: $response.body#/data/attributes/applicantUserID
+  
+  /users/{userID}:
+    get:
+      summary: fetch user with userID
+      operationId: getUser
+      parameters:
+        - name: userID
+          in: path
+          description: ID of the record type
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: record type of a record
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/User'              
+
+                
         default:
           description: Unexpected error
           content:
@@ -82,6 +109,24 @@ components:
                 expirationDate:
                   type: string
                   format: date-time
+                applicantUserID:
+                  type: string
+    User:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            attributes:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  description: user name                
 
  
      

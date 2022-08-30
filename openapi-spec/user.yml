@@ -1,0 +1,42 @@
+openapi: 3.0.2
+info:
+  version: 0.0.1
+  title: Citizen services User API
+paths:
+  /users/{userID}:
+    get:
+      summary: fetch user with userID
+      operationId: getUser
+      parameters:
+        - name: userID
+          in: path
+          description: ID of the record type
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: record type of a record
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/User'                
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            attributes:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  description: user name
